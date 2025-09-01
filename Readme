@@ -1,0 +1,1 @@
+I created a repo using POST, confirmed it with GET, updated it using PATCH, and finally deleted it with DELETE. This full cycle is called CRUD operations. In real API testing, I verify the response codes and responses to ensure everything works correctly.
