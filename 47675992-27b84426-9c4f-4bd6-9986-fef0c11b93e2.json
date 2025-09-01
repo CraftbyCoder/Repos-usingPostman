@@ -1,0 +1,257 @@
+{
+	"info": {
+		"_postman_id": "47675992-27b84426-9c4f-4bd6-9986-fef0c11b93e2",
+		"name": "TestUsingGitAccount",
+		"description": "1. GET the user detail using the bear token\n    \n2. post using that we will create one repository and perform https methods",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "bearer",
+			"id": "47675992-c618a0d5-5e2c-4143-aa63-6b564a93911e",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{api-key}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "",
+						"description": "application/vnd.github+json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://api.github.com/users/CraftbyCoder/repos",
+					"protocol": "https",
+					"host": [
+						"api",
+						"github",
+						"com"
+					],
+					"path": [
+						"users",
+						"CraftbyCoder",
+						"repos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "New Request",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "b4257e32-885a-42f8-ba84-95cd936cfb81",
+						"exec": [
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"id": "47675992-be0cbd87-3e96-4652-959b-803ed4b6cc6e",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{api-key}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\":\"verify-test\",\n    \"description\":\"The repo creating using the postman method 'POST' to the GIT account\",\n    \"private\":false\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://api.github.com/user/repos",
+					"protocol": "https",
+					"host": [
+						"api",
+						"github",
+						"com"
+					],
+					"path": [
+						"user",
+						"repos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "New Request",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "bd390064-140f-4406-8fbf-2ffb5b85b997",
+						"exec": [
+							"fetch(\"https://api.github.com/user/repos\", {",
+							"  method: \"GET\",",
+							"  headers: {",
+							"    \"Authorization\": \"Bearer <TOKEN>\",",
+							"    \"Accept\": \"application/vnd.github+json\"",
+							"  }",
+							"})",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"id": "47675992-4e6fd541-ddd3-45a0-a79f-dfc4644d4544",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{api-key}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"description\": \"Updated repo via API\",\n  \"private\": true\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://api.github.com/repos/CraftbyCoder/using-script",
+					"protocol": "https",
+					"host": [
+						"api",
+						"github",
+						"com"
+					],
+					"path": [
+						"repos",
+						"CraftbyCoder",
+						"using-script"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "New Request",
+			"id": "47675992-620f2f23-a414-4fcc-9e6b-5ed75fece036",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{api-key}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "https://api.github.com/repos/CraftbyCoder/verify-test",
+					"protocol": "https",
+					"host": [
+						"api",
+						"github",
+						"com"
+					],
+					"path": [
+						"repos",
+						"CraftbyCoder",
+						"verify-test"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "basic",
+		"basic": [
+			{
+				"key": "password",
+				"value": "priya1617",
+				"type": "string"
+			},
+			{
+				"key": "username",
+				"value": "priya",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "c87a6692-3057-440e-a211-e97fdb4ab376",
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "2fdb981a-91a0-4e5f-9748-d3ddf805b196",
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "api-key",
+			"value": "",
+			"type": "string"
+		}
+	]
+}
